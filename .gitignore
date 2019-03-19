@@ -1,0 +1,10 @@
+.idea/
+
+# Composer files
+vendor/
+
+# Cache
+src/PandaScoreAPI/cache/
+.php_cs.cache
+
+config.json
