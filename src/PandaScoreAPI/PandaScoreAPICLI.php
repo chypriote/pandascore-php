@@ -56,7 +56,7 @@ function printUsage($target = STDOUT)
     fprintf($target, "Usage:\n  %s %s <method> <param_1>…<param_N> %s <config_path> [option_1]…[option_N] \n", PHP_BINARY, $argv[0], ARG_CONFIG);
     fprintf($target, "\nFirst CLI script argument is API method name followed by N method arguments. Only method arguments without default value are mandatory, optional method arguments may be provided.");
     fprintf($target, "\nLibrary method name with arguments is followed by CLI script options. Option %s IS REQUIRED for library initialization.", ARG_CONFIG);
-    fprintf($target, "\n\nLibrary config file is expected to be JSON array representation containing library settings. For more please see GitHub wiki pages (https://github.com/dolejska-daniel/riot-api/wiki/LeagueAPI:-CLI-support).");
+    fprintf($target, "\n\nLibrary config file is expected to be JSON array representation containing library settings.");
     fprintf($target, "\n\nOptions:");
     $s = '  ';
     foreach (ARGS as $argName => $params) {
@@ -98,7 +98,7 @@ use PandaScoreAPI\Exceptions\GeneralException;
 use PandaScoreAPI\Exceptions\InvalidMethodCLIException;
 use PandaScoreAPI\Exceptions\InvalidParameterCLIException;
 use PandaScoreAPI\Exceptions\MissingParameterCLIException;
-use PandaScoreAPI\PandaScoreAPI;
+use PandaScoreAPI\LeagueOfLegendsAPI\LeagueOfLegendsAPI;
 
 //  check for help arg
 if (in_array('--help', $argv) || in_array('-h', $argv)) {
@@ -112,9 +112,9 @@ $methodName = @$argv[1];
 $methodParams = [];
 
 //  setup reflections
-$apiRef = new ReflectionClass(PandaScoreAPI::class);
+$apiRef = new ReflectionClass(LeagueOfLegendsAPI::class);
 if (false == $methodName || false == $apiRef->hasMethod($methodName)) {
-    throw new InvalidMethodCLIException('LeagueAPI library method name is '.($methodName ? "invalid. Library method '$methodName' does not exist or is not accessible." : 'missing.'));
+    throw new InvalidMethodCLIException('PandaScoreAPI library method name is '.($methodName ? "invalid. Library method '$methodName' does not exist or is not accessible." : 'missing.'));
 }
 
 $method = $apiRef->getMethod($methodName);
@@ -260,7 +260,7 @@ $cfg = @file_get_contents($cfg);
 if (false == $cfg || false == ($cfg = json_decode($cfg, true))) {
     throw new GeneralException('Config file could not be loaded.');
 }
-$api = new PandaScoreAPI($cfg);
+$api = new \PandaScoreAPI\LeagueOfLegendsAPI\LeagueOfLegendsAPI($cfg);
 $result = $method->invokeArgs($api, $methodParams);
 $data = json_encode($result, JSON_PRETTY_PRINT);
 

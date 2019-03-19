@@ -467,7 +467,6 @@ class PandaScoreAPI
      * @throws RequestException
      * @throws ServerException
      * @throws ServerLimitException
-     * @throws SettingsException
      * @throws GeneralException
      */
     protected function makeCall(string $method = self::METHOD_GET): PromiseInterface
@@ -606,8 +605,6 @@ class PandaScoreAPI
      * @param array $requestHeaders
      *
      * @return string
-     *
-     * @throws GeneralException
      */
     public function _getCallUrl(&$requestHeaders = []): string
     {
@@ -681,12 +678,6 @@ class PandaScoreAPI
         }
     }
 
-    /**
-     * @internal
-     *
-     * @param PromiseInterface $promise
-     * @param callable         $resultCallback
-     */
     public function resolveOrEnqueuePromise(PromiseInterface $promise, callable $resultCallback = null)
     {
         if ($this->next_async_request) {
@@ -1031,7 +1022,6 @@ class PandaScoreAPI
      *
      * @return Objects\LeagueDto
      *
-     * @throws SettingsException
      * @throws RequestException
      * @throws ServerException
      * @throws ServerLimitException
@@ -1057,7 +1047,6 @@ class PandaScoreAPI
      *
      * @return Objects\LeagueDto
      *
-     * @throws SettingsException
      * @throws RequestException
      * @throws ServerException
      * @throws ServerLimitException
@@ -1083,7 +1072,6 @@ class PandaScoreAPI
      *
      * @return Objects\LeagueDto
      *
-     * @throws SettingsException
      * @throws RequestException
      * @throws ServerException
      * @throws ServerLimitException
