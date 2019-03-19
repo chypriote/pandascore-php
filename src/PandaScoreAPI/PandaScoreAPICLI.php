@@ -11,7 +11,7 @@
  *  followed by CLI arguments
  *
  *  Usage example:
- *    php RiotAPI_CLI.php {method} {param 1} … {param x} {param x} {cli arg 1} {cli arg param 1} ...
+ *    php PandaScoreAPICLI.php {method} {param 1} … {param x} {param x} {cli arg 1} {cli arg param 1} ...
  */
 const
     ARG_CONFIG = '--config',

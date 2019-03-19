@@ -1000,7 +1000,7 @@ class LeagueAPI
 
         if (!$requestPromise) {
             // calls are not cached or this request is not cached
-            // perform call to Riot API
+            // perform call to PandaScore API
             $guzzle = $this->guzzle;
             if ($this->next_async_request) {
                 $guzzle = $this->next_async_request->client;
