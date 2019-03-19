@@ -2,37 +2,17 @@
 
 namespace PandaScoreAPI\Objects;
 
-/**
- *   Class VideogameDto
- * represents a videogame.
- *
- * Used in:
- *   league
- *
- *     @see https://developers.pandascore.co/doc/#operation/get_leagues
- *     @see https://developers.pandascore.co/doc/#operation/get_leagues_leagueIdOrSlug
- */
 class VideogameDto extends ApiObject
 {
-    /**
-     *   ID of the videogame.
-     *
-     * @var int
-     */
+    /** @var int $id */
     public $id;
 
-    /**
-     * @var string
-     */
+    /** @var string $name */
     public $name;
 
-    /**
-     * @var string
-     */
+    /** @var string $slug */
     public $slug;
 
-    /**
-     * @var string currentVersion
-     */
+    /** @var string $currentVersion */
     public $currentVersion;
 }

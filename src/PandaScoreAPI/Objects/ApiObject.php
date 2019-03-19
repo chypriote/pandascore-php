@@ -2,6 +2,7 @@
 
 namespace PandaScoreAPI\Objects;
 
+use function Couchbase\defaultDecoder;
 use PandaScoreAPI\LeagueAPI\Exceptions\GeneralException;
 use PandaScoreAPI\PandaScoreAPI;
 
@@ -10,12 +11,13 @@ use PandaScoreAPI\PandaScoreAPI;
  */
 abstract class ApiObject implements IApiObject
 {
-    /**
-     *   ApiObject constructor.
-     *
-     * @param array         $data
-     * @param PandaScoreAPI $api,
-     */
+	/**
+	 *   ApiObject constructor.
+	 *
+	 * @param array $data
+	 * @param PandaScoreAPI $api ,
+	 * @throws \ReflectionException
+	 */
     public function __construct(array $data, PandaScoreAPI $api = null)
     {
         // Tries to assigns data to class properties
@@ -53,45 +55,6 @@ abstract class ApiObject implements IApiObject
 
                 if ($iterableProp == $property) {
                     $this->_iterable = $this->$property;
-                }
-
-                //  Is API reference passed?
-                if ($api) {
-                    //  Should this property be linked and is it allowed?
-                    if ($linkableProp['parameter'] == $property && $api->getSetting(PandaScoreAPI::SET_STATICDATA_LINKING, false)) {
-                        $apiRef = new \ReflectionClass(PandaScoreAPI::class);
-                        $linkingFunctionRef = $apiRef->getMethod($linkableProp['function']);
-
-                        $params = [$value];
-                        foreach ($linkingFunctionRef->getParameters() as $parameter) {
-                            switch ($parameter->getName()) {
-                                // Extended data fetch?
-                                case 'extended':
-                                    $params[] = true;
-                                    break;
-
-                                // Data by key?
-                                case 'data_by_key':
-                                    $params[] = true;
-                                    break;
-
-                                // Request locale
-                                case 'locale':
-                                    $params[] = $api->getSetting(PandaScoreAPI::SET_STATICDATA_LOCALE, $parameter->getDefaultValue());
-                                    break;
-
-                                // Static data version
-                                case 'version':
-                                    $params[] = $api->getSetting(PandaScoreAPI::SET_STATICDATA_VERSION, $parameter->getDefaultValue());
-                                    break;
-
-                                default:
-                                    break;
-                            }
-                        }
-
-                        $this->staticData = $linkingFunctionRef->invokeArgs($api, $params);
-                    }
                 }
             }
             //  If property does not exist

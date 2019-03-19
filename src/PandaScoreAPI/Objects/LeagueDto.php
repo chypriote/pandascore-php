@@ -3,9 +3,6 @@
 namespace PandaScoreAPI\Objects;
 
 /**
- *   Class LeagueDto
- * represents a league.
- *
  * Used in:
  *   league
  *
@@ -17,6 +14,7 @@ class LeagueDto extends ApiObject
     /** @var int $id */
     public $id;
 
+	/** @var string $name */
     public $name;
 
     /** @var string $url */

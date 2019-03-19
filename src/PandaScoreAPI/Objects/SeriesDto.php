@@ -3,9 +3,6 @@
 namespace PandaScoreAPI\Objects;
 
 /**
- *   Class SeriesDto
- * represents a series.
- *
  * Used in:
  *   series
  *

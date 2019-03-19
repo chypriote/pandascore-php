@@ -99,6 +99,7 @@ use PandaScoreAPI\Exceptions\InvalidMethodCLIException;
 use PandaScoreAPI\Exceptions\InvalidParameterCLIException;
 use PandaScoreAPI\Exceptions\MissingParameterCLIException;
 use PandaScoreAPI\LeagueOfLegendsAPI\LeagueOfLegendsAPI;
+use PandaScoreAPI\PandaScoreAPI;
 
 //  check for help arg
 if (in_array('--help', $argv) || in_array('-h', $argv)) {
@@ -112,7 +113,7 @@ $methodName = @$argv[1];
 $methodParams = [];
 
 //  setup reflections
-$apiRef = new ReflectionClass(LeagueOfLegendsAPI::class);
+$apiRef = new ReflectionClass(PandaScoreAPI::class);
 if (false == $methodName || false == $apiRef->hasMethod($methodName)) {
     throw new InvalidMethodCLIException('PandaScoreAPI library method name is '.($methodName ? "invalid. Library method '$methodName' does not exist or is not accessible." : 'missing.'));
 }
@@ -260,7 +261,7 @@ $cfg = @file_get_contents($cfg);
 if (false == $cfg || false == ($cfg = json_decode($cfg, true))) {
     throw new GeneralException('Config file could not be loaded.');
 }
-$api = new \PandaScoreAPI\LeagueOfLegendsAPI\LeagueOfLegendsAPI($cfg);
+$api = new PandaScoreAPI($cfg);
 $result = $method->invokeArgs($api, $methodParams);
 $data = json_encode($result, JSON_PRETTY_PRINT);
 
