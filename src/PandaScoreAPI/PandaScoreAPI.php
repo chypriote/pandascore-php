@@ -4,7 +4,9 @@ namespace PandaScoreAPI;
 
 use PandaScoreAPI\Endpoints\Leagues;
 use PandaScoreAPI\Endpoints\Matches;
+use PandaScoreAPI\Endpoints\Players;
 use PandaScoreAPI\Endpoints\Series;
+use PandaScoreAPI\Endpoints\Teams;
 use PandaScoreAPI\Endpoints\Tournaments;
 use PandaScoreAPI\LeagueOfLegendsAPI\LeagueOfLegendsAPI;
 
@@ -37,6 +39,12 @@ class PandaScoreAPI extends APIClient
 	/** @var Matches $matches */
 	public $matches;
 
+	/** @var Teams $teams */
+	public $teams;
+
+	/** @var Players $players */
+	public $players;
+
 	/** @var LeagueOfLegendsAPI $lol */
 	public $lol;
 
@@ -47,6 +55,8 @@ class PandaScoreAPI extends APIClient
 		$this->series = new Series($this);
 		$this->tournaments = new Tournaments($this);
 		$this->matches = new Matches($this);
+		$this->teams = new Teams($this);
+		$this->players = new Players($this);
 
 		if (PandaScoreAPI::class === get_class($this) && $this->getSetting(self::USE_LEAGUE_OF_LEGENDS)) {
 			$this->lol = new LeagueOfLegendsAPI($settings);

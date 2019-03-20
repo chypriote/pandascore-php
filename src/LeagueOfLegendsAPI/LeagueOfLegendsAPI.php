@@ -3,7 +3,10 @@
 namespace PandaScoreAPI\LeagueOfLegendsAPI;
 
 use PandaScoreAPI\LeagueOfLegendsAPI\Endpoints\Leagues;
+use PandaScoreAPI\LeagueOfLegendsAPI\Endpoints\Matches;
+use PandaScoreAPI\LeagueOfLegendsAPI\Endpoints\Players;
 use PandaScoreAPI\LeagueOfLegendsAPI\Endpoints\Series;
+use PandaScoreAPI\LeagueOfLegendsAPI\Endpoints\Teams;
 use PandaScoreAPI\LeagueOfLegendsAPI\Endpoints\Tournaments;
 use PandaScoreAPI\PandaScoreAPI;
 
@@ -17,5 +20,8 @@ class LeagueOfLegendsAPI extends PandaScoreAPI
 		$this->leagues = new Leagues($this);
 		$this->series = new Series($this);
 		$this->tournaments = new Tournaments($this);
+		$this->matches = new Matches($this);
+		$this->players = new Players($this);
+		$this->teams = new Teams($this);
 	}
 }

@@ -18,7 +18,7 @@ class Tournaments extends APIEndpoint
 	 *     @see https://developers.pandascore.co/doc/#tag/LoL-Tournaments
 	 * ==================================================================d=d=
 	 **/
-	const RESOURCE_TOURNAMENT = 'tournament';
+	const RESOURCE_LOL_TOURNAMENT = 'lol-tournament';
 
 	/**
 	 *   List tournaments.
@@ -35,7 +35,7 @@ class Tournaments extends APIEndpoint
 	public function listTournaments()
 	{
 		$resultPromise = $this->client->setEndpoint('/tournaments')
-			->setResource(self::RESOURCE_TOURNAMENT, '/tournaments/%s')
+			->setResource(self::RESOURCE_LOL_TOURNAMENT, '/tournaments/%s')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
@@ -63,7 +63,7 @@ class Tournaments extends APIEndpoint
 	public function getPastTournaments()
 	{
 		$resultPromise = $this->client->setEndpoint('/tournaments/past')
-			->setResource(self::RESOURCE_TOURNAMENT, '/tournaments/%s/past')
+			->setResource(self::RESOURCE_LOL_TOURNAMENT, '/tournaments/%s/past')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
@@ -91,7 +91,7 @@ class Tournaments extends APIEndpoint
 	public function getUpcomingTournaments()
 	{
 		$resultPromise = $this->client->setEndpoint('/tournaments/upcoming')
-			->setResource(self::RESOURCE_TOURNAMENT, '/tournaments/%s/upcoming')
+			->setResource(self::RESOURCE_LOL_TOURNAMENT, '/tournaments/%s/upcoming')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
@@ -119,7 +119,7 @@ class Tournaments extends APIEndpoint
 	public function getRunningTournaments()
 	{
 		$resultPromise = $this->client->setEndpoint('/tournaments/running')
-			->setResource(self::RESOURCE_TOURNAMENT, '/tournaments/%s/running')
+			->setResource(self::RESOURCE_LOL_TOURNAMENT, '/tournaments/%s/running')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
@@ -149,7 +149,7 @@ class Tournaments extends APIEndpoint
 	public function getTournament(int $tournament_id)
 	{
 		$resultPromise = $this->client->setEndpoint("/tournaments/{$tournament_id}")
-			->setResource(self::RESOURCE_TOURNAMENT, '/tournaments/%s')
+			->setResource(self::RESOURCE_LOL_TOURNAMENT, '/tournaments/%s')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
@@ -174,7 +174,7 @@ class Tournaments extends APIEndpoint
 	public function getTournamentBrackets(int $tournament_id)
 	{
 		$resultPromise = $this->client->setEndpoint("/tournaments/{$tournament_id}/brackets")
-			->setResource(self::RESOURCE_TOURNAMENT, '/tournaments/%s/brackets')
+			->setResource(self::RESOURCE_LOL_TOURNAMENT, '/tournaments/%s/brackets')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
@@ -204,7 +204,7 @@ class Tournaments extends APIEndpoint
 	public function getTournamentMatches(int $tournament_id)
 	{
 		$resultPromise = $this->client->setEndpoint("/tournaments/{$tournament_id}/matches")
-			->setResource(self::RESOURCE_TOURNAMENT, '/tournaments/%s/matches')
+			->setResource(self::RESOURCE_LOL_TOURNAMENT, '/tournaments/%s/matches')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
@@ -234,7 +234,7 @@ class Tournaments extends APIEndpoint
 	public function getTournamentStandings(int $tournament_id)
 	{
 		$resultPromise = $this->client->setEndpoint("/tournaments/{$tournament_id}/standings")
-			->setResource(self::RESOURCE_TOURNAMENT, '/tournaments/%s/standings')
+			->setResource(self::RESOURCE_LOL_TOURNAMENT, '/tournaments/%s/standings')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
@@ -264,7 +264,7 @@ class Tournaments extends APIEndpoint
 	public function getTournamentTeams(int $tournament_id)
 	{
 		$resultPromise = $this->client->setEndpoint("/tournaments/{$tournament_id}/teams")
-			->setResource(self::RESOURCE_TOURNAMENT, '/tournaments/%s/teams')
+			->setResource(self::RESOURCE_LOL_TOURNAMENT, '/tournaments/%s/teams')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {

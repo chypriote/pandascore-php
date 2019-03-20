@@ -18,7 +18,7 @@ class Matches extends APIEndpoint
 	 *     @see https://developers.pandascore.co/doc/#tag/LoL-Matches
 	 * ==================================================================d=d=
 	 **/
-	const RESOURCE_MATCH = 'match';
+	const RESOURCE_LOL_MATCH = 'lol-match';
 
 	/**
 	 *   List matches.
@@ -35,7 +35,7 @@ class Matches extends APIEndpoint
 	public function listMatches()
 	{
 		$resultPromise = $this->client->setEndpoint('/matches')
-			->setResource(self::RESOURCE_MATCH, '/matches/%s')
+			->setResource(self::RESOURCE_LOL_MATCH, '/matches/%s')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
@@ -63,7 +63,7 @@ class Matches extends APIEndpoint
 	public function getPastMatches()
 	{
 		$resultPromise = $this->client->setEndpoint('/matches/past')
-			->setResource(self::RESOURCE_MATCH, '/matches/%s/past')
+			->setResource(self::RESOURCE_LOL_MATCH, '/matches/%s/past')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
@@ -91,7 +91,7 @@ class Matches extends APIEndpoint
 	public function getUpcomingMatches()
 	{
 		$resultPromise = $this->client->setEndpoint('/matches/upcoming')
-			->setResource(self::RESOURCE_MATCH, '/matches/%s/upcoming')
+			->setResource(self::RESOURCE_LOL_MATCH, '/matches/%s/upcoming')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
@@ -119,7 +119,7 @@ class Matches extends APIEndpoint
 	public function getRunningMatches()
 	{
 		$resultPromise = $this->client->setEndpoint('/matches/running')
-			->setResource(self::RESOURCE_MATCH, '/matches/%s/running')
+			->setResource(self::RESOURCE_LOL_MATCH, '/matches/%s/running')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {

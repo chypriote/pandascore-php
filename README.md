@@ -51,20 +51,20 @@ Below you can find table of implemented API resources. Endpoints without status 
 | All Videogames - Series | ![All Videogames - Series resource implemented version](https://img.shields.io/badge/implemented-yes-success.svg) |
 | All Videogames - Tournaments | ![All Videogames - Tournaments resource implemented version](https://img.shields.io/badge/implemented-yes-success.svg) |
 | All Videogames - Matches | ![All Videogames - Matches resource implemented version](https://img.shields.io/badge/implemented-yes-success.svg) |
-| All Videogames - Teams | ![All Videogames - Teams resource implemented version](https://img.shields.io/badge/implemented-no-critical.svg) |
-| All Videogames - Players | ![All Videogames - Players resource implemented version](https://img.shields.io/badge/implemented-no-critical.svg) |
+| All Videogames - Teams | ![All Videogames - Teams resource implemented version](https://img.shields.io/badge/implemented-yes-success.svg) |
+| All Videogames - Players | ![All Videogames - Players resource implemented version](https://img.shields.io/badge/implemented-yes-success.svg) |
 | LOL - Champions | ![LOL - Champions resource implemented version](https://img.shields.io/badge/implemented----inactive.svg) |
 | LOL - Games | ![LOL - Games resource implemented version](https://img.shields.io/badge/implemented-no-critical.svg) |
 | LOL - Items | ![LOL - Items resource implemented version](https://img.shields.io/badge/implemented----inactive.svg) |
 | LOL - Leagues | ![LOL - Leagues resource implemented version](https://img.shields.io/badge/implemented-yes-success.svg) |
 | LOL - Masteries | ![LOL - Masteries resource implemented version](https://img.shields.io/badge/implemented----inactive.svg) |
 | LOL - Matches | ![LOL - Matches resource implemented version](https://img.shields.io/badge/implemented-yes-success.svg) |
-| LOL - Players | ![LOL - Players resource implemented version](https://img.shields.io/badge/implemented-no-critical.svg) |
+| LOL - Players | ![LOL - Players resource implemented version](https://img.shields.io/badge/implemented-yes-success.svg) |
 | LOL - Runes | ![LOL - Runes resource implemented version](https://img.shields.io/badge/implemented----inactive.svg) |
 | LOL - Series | ![LOL - Series resource implemented version](https://img.shields.io/badge/implemented-yes-success.svg) |
 | LOL - Spells | ![LOL - Spells resource implemented version](https://img.shields.io/badge/implemented----inactive.svg) |
 | LOL - Stats | ![LOL - Stats resource implemented version](https://img.shields.io/badge/implemented-no-critical.svg) |
-| LOL - Teams | ![LOL - Teams resource implemented version](https://img.shields.io/badge/implemented-no-critical.svg) |
+| LOL - Teams | ![LOL - Teams resource implemented version](https://img.shields.io/badge/implemented-yes-success.svg) |
 | LOL - Tournaments | ![LOL - Tournaments resource implemented version](https://img.shields.io/badge/implemented-yes-success.svg) |
 | CSGO | ![CSGO resource implemented version](https://img.shields.io/badge/implemented----inactive.svg) |
 | DOTA 2 | ![DOTA 2 resource implemented version](https://img.shields.io/badge/implemented----inactive.svg) |
@@ -84,10 +84,14 @@ use PandaScoreAPI\PandaScoreAPI;
 $api = new PandaScoreAPI([
 	//  Your API key, you can get one at https://pandascore.co/settings
 	PandaScoreAPI::SET_TOKEN    => 'YOUR_PANDASCORE_TOKEN',
+	// If you need to use a game specific API, you initialize it at launch
+	PandascoreAPI::USE_LEAGUE_OF_LEGENDS => true,
 ]);
 
 //  And now you are ready to rock!
-$ch = $api->getLeague(61);
+$ch = $api->leagues->getLeague(61);
+// Get only the datas from the games you need
+$lolch = $api->lol->tournaments->listTournaments();
 ```
 
 And there is a lot more what you can set when initializing the library - mainly to enable special features or to amend behaviour of the library.

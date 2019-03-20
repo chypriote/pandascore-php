@@ -18,7 +18,7 @@ class Series extends APIEndpoint
 	 *     @see https://developers.pandascore.co/doc/#tag/LoL-series
 	 * ==================================================================d=d=
 	 **/
-	const RESOURCE_SERIE = 'serie';
+	const RESOURCE_LOL_SERIE = 'lol-serie';
 
 	/**
 	 *   List series.
@@ -35,7 +35,7 @@ class Series extends APIEndpoint
 	public function listSeries()
 	{
 		$resultPromise = $this->client->setEndpoint('/series')
-			->setResource(self::RESOURCE_SERIE, '/series/%s')
+			->setResource(self::RESOURCE_LOL_SERIE, '/series/%s')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
@@ -63,7 +63,7 @@ class Series extends APIEndpoint
 	public function getPastSeries()
 	{
 		$resultPromise = $this->client->setEndpoint('/series/past')
-			->setResource(self::RESOURCE_SERIE, '/series/%s/past')
+			->setResource(self::RESOURCE_LOL_SERIE, '/series/%s/past')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
@@ -91,7 +91,7 @@ class Series extends APIEndpoint
 	public function listRunningSeries()
 	{
 		$resultPromise = $this->client->setEndpoint('/series/running')
-			->setResource(self::RESOURCE_SERIE, '/series/%s/running')
+			->setResource(self::RESOURCE_LOL_SERIE, '/series/%s/running')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
@@ -119,7 +119,7 @@ class Series extends APIEndpoint
 	public function listUpcomingSeries()
 	{
 		$resultPromise = $this->client->setEndpoint('/series/upcoming')
-			->setResource(self::RESOURCE_SERIE, '/series/%s/upcoming')
+			->setResource(self::RESOURCE_LOL_SERIE, '/series/%s/upcoming')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {

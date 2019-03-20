@@ -18,7 +18,7 @@ class Leagues extends APIEndpoint
 	 *     @see https://developers.pandascore.co/doc/#tag/LoL-Leagues
 	 * ==================================================================d=d=
 	 **/
-	const RESOURCE_LEAGUE = 'league';
+	const RESOURCE_LOL_LEAGUE = 'lol-league';
 
 	/**
 	 *   List leagues.
@@ -35,7 +35,7 @@ class Leagues extends APIEndpoint
 	public function listLeagues()
 	{
 		$resultPromise = $this->client->setEndpoint('/leagues')
-			->setResource(self::RESOURCE_LEAGUE, '/leagues/%s')
+			->setResource(self::RESOURCE_LOL_LEAGUE, '/leagues/%s')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
