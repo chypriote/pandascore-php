@@ -1,68 +1,41 @@
 <?php
 
-namespace PandaScoreAPI\Endpoints;
+namespace PandaScoreAPI\LeagueOfLegendsAPI\Endpoints;
 
+use PandaScoreAPI\Endpoints\APIEndpoint;
 use PandaScoreAPI\Exceptions\GeneralException;
 use PandaScoreAPI\Exceptions\RequestException;
 use PandaScoreAPI\Exceptions\ServerException;
 use PandaScoreAPI\Exceptions\ServerLimitException;
 use PandaScoreAPI\Objects;
 
-class Tournaments extends APIEndpoint
+class Matches extends APIEndpoint
 {
 	/**
 	 * ==================================================================d=d=
-	 *     Tournaments Endpoint Methods.
+	 *     Matches Endpoint Methods.
 	 *
-	 *     @see https://developers.pandascore.co/doc/#tag/Tournaments
+	 *     @see https://developers.pandascore.co/doc/#tag/LoL-Matches
 	 * ==================================================================d=d=
 	 **/
-	const RESOURCE_TOURNAMENT = 'tournament';
+	const RESOURCE_MATCH = 'match';
 
 	/**
-	 *   List tournaments.
+	 *   List matches.
 	 *
-	 * @return Objects\TournamentDto[]
+	 * @return Objects\MatchDto[]
 	 *
 	 * @throws RequestException
 	 * @throws ServerException
 	 * @throws ServerLimitException
 	 * @throws GeneralException
 	 *
-	 * @see https://developers.pandascore.co/doc/#operation/get_tournaments
+	 * @see https://developers.pandascore.co/doc/#operation/get_matches
 	 */
-	public function listTournaments()
+	public function listMatches()
 	{
-		$resultPromise = $this->client->setEndpoint('/tournaments')
-			->setResource(self::RESOURCE_TOURNAMENT, '/tournaments/%s')
-			->makeCall();
-
-		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
-			$r = [];
-			foreach ($result as $leagueListDtoData) {
-				$r[] = new Objects\TournamentDto($leagueListDtoData, $this->client);
-			}
-
-			return $r;
-		});
-	}
-
-	/**
-	 *   List past tournaments.
-	 *
-	 * @return Objects\TournamentDto[]
-	 *
-	 * @throws RequestException
-	 * @throws ServerException
-	 * @throws ServerLimitException
-	 * @throws GeneralException
-	 *
-	 * @see https://developers.pandascore.co/doc/#operation/get_tournaments_past
-	 */
-	public function getPastTournaments()
-	{
-		$resultPromise = $this->client->setEndpoint('/tournaments/past')
-			->setResource(self::RESOURCE_TOURNAMENT, '/tournaments/%s/past')
+		$resultPromise = $this->client->setEndpoint('/matches')
+			->setResource(self::RESOURCE_MATCH, '/matches/%s')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
@@ -76,21 +49,21 @@ class Tournaments extends APIEndpoint
 	}
 
 	/**
-	 *   List upcoming tournaments.
+	 *   List past matches.
 	 *
-	 * @return Objects\TournamentDto[]
+	 * @return Objects\MatchDto[]
 	 *
 	 * @throws RequestException
 	 * @throws ServerException
 	 * @throws ServerLimitException
 	 * @throws GeneralException
 	 *
-	 * @see https://developers.pandascore.co/doc/#operation/get_tournaments_upcoming
+	 * @see https://developers.pandascore.co/doc/#operation/get_matches_past
 	 */
-	public function getUpcomingTournaments()
+	public function getPastMatches()
 	{
-		$resultPromise = $this->client->setEndpoint('/tournaments/upcoming')
-			->setResource(self::RESOURCE_TOURNAMENT, '/tournaments/%s/upcoming')
+		$resultPromise = $this->client->setEndpoint('/matches/past')
+			->setResource(self::RESOURCE_MATCH, '/matches/%s/past')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
@@ -104,21 +77,49 @@ class Tournaments extends APIEndpoint
 	}
 
 	/**
-	 *   List running tournaments.
+	 *   List upcoming matches.
 	 *
-	 * @return Objects\TournamentDto[]
+	 * @return Objects\MatchDto[]
 	 *
 	 * @throws RequestException
 	 * @throws ServerException
 	 * @throws ServerLimitException
 	 * @throws GeneralException
 	 *
-	 * @see https://developers.pandascore.co/doc/#operation/get_tournaments_running
+	 * @see https://developers.pandascore.co/doc/#operation/get_matches_upcoming
 	 */
-	public function getRunningTournaments()
+	public function getUpcomingMatches()
 	{
-		$resultPromise = $this->client->setEndpoint('/tournaments/running')
-			->setResource(self::RESOURCE_TOURNAMENT, '/tournaments/%s/running')
+		$resultPromise = $this->client->setEndpoint('/matches/upcoming')
+			->setResource(self::RESOURCE_MATCH, '/matches/%s/upcoming')
+			->makeCall();
+
+		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
+			$r = [];
+			foreach ($result as $leagueListDtoData) {
+				$r[] = new Objects\MatchDto($leagueListDtoData, $this->client);
+			}
+
+			return $r;
+		});
+	}
+
+	/**
+	 *   List running matches.
+	 *
+	 * @return Objects\MatchDto[]
+	 *
+	 * @throws RequestException
+	 * @throws ServerException
+	 * @throws ServerLimitException
+	 * @throws GeneralException
+	 *
+	 * @see https://developers.pandascore.co/doc/#operation/get_matches_running
+	 */
+	public function getRunningMatches()
+	{
+		$resultPromise = $this->client->setEndpoint('/matches/running')
+			->setResource(self::RESOURCE_MATCH, '/matches/%s/running')
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {

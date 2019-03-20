@@ -2,7 +2,7 @@
 
 namespace PandaScoreAPI\Objects;
 
-class MatchDto extends ApiObject
+class BracketDto extends ApiObject
 {
 	/** @var int $id */
 	public $id;
@@ -16,20 +16,11 @@ class MatchDto extends ApiObject
 	/** @var GameDto[] $games */
 	public $games;
 
-	/** @var LeagueDto $league */
-	public $league;
-
-	/** @var int $leagueId */
-	public $leagueId;
-
-	/** @var bool $live */
-	public $live;
-
 	/** @var string $matchType */
 	public $matchType;
 
-	/** @var \DateTime $modifiedAt */
-	public $modifiedAt;
+	/** @var array $live */
+	public $live;
 
 	/** @var string $name */
 	public $name;
@@ -37,17 +28,11 @@ class MatchDto extends ApiObject
 	/** @var int $numberOfGames */
 	public $numberOfGames;
 
-	/** @var OpponentDto[] $opponnents */
-	public $opponnents;
+	/** @var OpponentDto[] $opponents */
+	public $opponents;
 
-	/** @var MatchResultDto[] $results */
-	public $results;
-
-	/** @var SeriesDto $serie */
-	public $serie;
-
-	/** @var int $serieId */
-	public $serieId;
+	/** @var MatchDto[] $previousMatches */
+	public $previousMatches;
 
 	/** @var string $slug */
 	public $slug;
@@ -59,15 +44,12 @@ class MatchDto extends ApiObject
 	/** @var string $status */
 	public $status;
 
-	/** @var VideogameDto $videoGame */
-	public $videoGame;
-
-	/** @var VideogameVersionDto $videoGameVersion */
-	public $videoGameVersion;
-
-	/** @var OpponentDto $winner */
-	public $winner;
+	/** @var int $tournamentId */
+	public $tournamentId;
 
 	/** @var int $winnerId */
 	public $winnerId;
+
+	/** @var \DateTime $modifiedAt */
+	public $modifiedAt;
 }

@@ -16,4 +16,5 @@ return PhpCsFixer\Config::create()
         'ordered_imports' => true
     ])
     ->setFinder($finder)
+    ->setIndent("\t")
 ;
