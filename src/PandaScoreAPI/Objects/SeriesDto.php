@@ -6,8 +6,8 @@ namespace PandaScoreAPI\Objects;
  * Used in:
  *   series.
  *
- *     @see https://developers.pandascore.co/doc/#operation/get_leagues
- *     @see https://developers.pandascore.co/doc/#operation/get_leagues_leagueIdOrSlug
+ *     @see https://developers.pandascore.co/doc/#operation/get_series
+ *     @see https://developers.pandascore.co/doc/#operation/get_series_serieIdOrSlug
  */
 class SeriesDto extends ApiObject
 {
@@ -41,15 +41,24 @@ class SeriesDto extends ApiObject
 	/** @var int $prizepool */
 	public $prizepool;
 
-	/** @var \DateTime $begin_at */
+	/** @var string $begin_at */
 	public $begin_at;
 
-	/** @var \DateTime $end_at */
+	/** @var string $end_at */
 	public $end_at;
+
+	/** @var string $modified_at */
+	public $modified_at;
+
+	/** @var VideogameDto $videogame */
+	public $videogame;
+
+	/** @var TournamentDto[] $tournaments */
+	public $tournaments;
+
+	/** @var LeagueDto $league */
+	public $league;
 
 	/** @var int $league_id */
 	public $league_id;
-
-	/** @var \DateTime $modified_at */
-	public $modified_at;
 }

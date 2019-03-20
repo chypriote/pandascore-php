@@ -7,7 +7,7 @@ class MatchDto extends ApiObject
 	/** @var int $id */
 	public $id;
 
-	/** @var \DateTime $begin_at */
+	/** @var string $begin_at */
 	public $begin_at;
 
 	/** @var bool $draw */
@@ -34,7 +34,7 @@ class MatchDto extends ApiObject
 	/** @var int $number_of_games */
 	public $number_of_games;
 
-	/** @var OpponentDto[] $opponnents */
+	/** @var TeamDto[] $opponnents */
 	public $opponnents;
 
 	/** @var MatchResultDto[] $results */
@@ -62,12 +62,12 @@ class MatchDto extends ApiObject
 	/** @var VideogameVersionDto $videogame_version */
 	public $videogame_version;
 
-	/** @var OpponentDto $winner */
+	/** @var TeamDto $winner */
 	public $winner;
 
 	/** @var int $winner_id */
 	public $winner_id;
 
-	/** @var \DateTime $modified_at */
+	/** @var string $modified_at */
 	public $modified_at;
 }

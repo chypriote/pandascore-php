@@ -130,4 +130,149 @@ class Tournaments extends APIEndpoint
 			return $r;
 		});
 	}
+
+	/**
+	 *   Get a single tournament by ID or by slug.
+	 *
+	 * @param int $tournament_id
+	 *
+	 * @return Objects\TournamentDto
+	 *
+	 * @throws RequestException
+	 * @throws ServerException
+	 * @throws ServerLimitException
+	 * @throws GeneralException
+	 *
+	 * @see https://developers.pandascore.co/doc/#operation/get_tournaments_tournamentIdOrSlug
+	 */
+	public function getTournament(int $tournament_id)
+	{
+		$resultPromise = $this->client->setEndpoint("/tournaments/{$tournament_id}")
+			->setResource(self::RESOURCE_TOURNAMENT, '/tournaments/%s')
+			->makeCall();
+
+		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
+			return new Objects\TournamentDto($result, $this->client);
+		});
+	}
+
+	/**
+	 *  Get the brackets of the given tournament.
+	 *
+	 * @param int $tournament_id
+	 *
+	 * @return Objects\BracketDto[]
+	 *
+	 * @throws RequestException
+	 * @throws ServerException
+	 * @throws ServerLimitException
+	 * @throws GeneralException
+	 *
+	 * @see https://developers.pandascore.co/doc/#operation/get_tournaments_tournamentIdOrSlug_brackets
+	 */
+	public function getTournamentBrackets(int $tournament_id)
+	{
+		$resultPromise = $this->client->setEndpoint("/tournaments/{$tournament_id}/brackets")
+			->setResource(self::RESOURCE_TOURNAMENT, '/tournaments/%s/brackets')
+			->makeCall();
+
+		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
+			$r = [];
+			foreach ($result as $leagueListDtoData) {
+				$r[] = new Objects\BracketDto($leagueListDtoData, $this->client);
+			}
+
+			return $r;
+		});
+	}
+
+	/**
+	 *  Get the matches of the given tournament.
+	 *
+	 * @param int $tournament_id
+	 *
+	 * @return Objects\MatchDto[]
+	 *
+	 * @throws RequestException
+	 * @throws ServerException
+	 * @throws ServerLimitException
+	 * @throws GeneralException
+	 *
+	 * @see https://developers.pandascore.co/doc/#operation/get_tournaments_tournamentIdOrSlug_matches
+	 */
+	public function getTournamentMatches(int $tournament_id)
+	{
+		$resultPromise = $this->client->setEndpoint("/tournaments/{$tournament_id}/matches")
+			->setResource(self::RESOURCE_TOURNAMENT, '/tournaments/%s/matches')
+			->makeCall();
+
+		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
+			$r = [];
+			foreach ($result as $leagueListDtoData) {
+				$r[] = new Objects\MatchDto($leagueListDtoData, $this->client);
+			}
+
+			return $r;
+		});
+	}
+
+	/**
+	 *  Get the current standings for a given tournament.
+	 *
+	 * @param int $tournament_id
+	 *
+	 * @return Objects\StandingDto[]
+	 *
+	 * @throws RequestException
+	 * @throws ServerException
+	 * @throws ServerLimitException
+	 * @throws GeneralException
+	 *
+	 * @see https://developers.pandascore.co/doc/#operation/get_tournaments_tournamentIdOrSlug_standings
+	 */
+	public function getTournamentStandings(int $tournament_id)
+	{
+		$resultPromise = $this->client->setEndpoint("/tournaments/{$tournament_id}/standings")
+			->setResource(self::RESOURCE_TOURNAMENT, '/tournaments/%s/standings')
+			->makeCall();
+
+		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
+			$r = [];
+			foreach ($result as $leagueListDtoData) {
+				$r[] = new Objects\StandingDto($leagueListDtoData, $this->client);
+			}
+
+			return $r;
+		});
+	}
+
+	/**
+	 *  List teams for the given tournament.
+	 *
+	 * @param int $tournament_id
+	 *
+	 * @return Objects\TeamDto[]
+	 *
+	 * @throws RequestException
+	 * @throws ServerException
+	 * @throws ServerLimitException
+	 * @throws GeneralException
+	 *
+	 * @see https://developers.pandascore.co/doc/#operation/get_tournaments_tournamentIdOrSlug_teams
+	 */
+	public function getTournamentTeams(int $tournament_id)
+	{
+		$resultPromise = $this->client->setEndpoint("/tournaments/{$tournament_id}/teams")
+			->setResource(self::RESOURCE_TOURNAMENT, '/tournaments/%s/teams')
+			->makeCall();
+
+		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
+			$r = [];
+			foreach ($result as $leagueListDtoData) {
+				$r[] = new Objects\TeamDto($leagueListDtoData, $this->client);
+			}
+
+			return $r;
+		});
+	}
 }

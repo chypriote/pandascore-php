@@ -35,6 +35,6 @@ class LeagueDto extends ApiObject
 	/** @var VideogameDto $videogame */
 	public $videogame;
 
-	/** @var \DateTime $modified_at */
+	/** @var string $modified_at */
 	public $modified_at;
 }

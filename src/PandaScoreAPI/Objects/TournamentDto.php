@@ -7,10 +7,10 @@ class TournamentDto extends ApiObject
 	/** @var int $id */
 	public $id;
 
-	/** @var \DateTime $begin_at */
+	/** @var string $begin_at */
 	public $begin_at;
 
-	/** @var \DateTime $end_at */
+	/** @var string $end_at */
 	public $end_at;
 
 	/** @var array $expected_roster */
@@ -49,6 +49,6 @@ class TournamentDto extends ApiObject
 	/** @var string $winner_id */
 	public $winner_id;
 
-	/** @var \DateTime $modified_at */
+	/** @var string $modified_at */
 	public $modified_at;
 }

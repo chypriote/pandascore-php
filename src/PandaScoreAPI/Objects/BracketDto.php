@@ -7,7 +7,7 @@ class BracketDto extends ApiObject
 	/** @var int $id */
 	public $id;
 
-	/** @var \DateTime $begin_at */
+	/** @var string $begin_at */
 	public $begin_at;
 
 	/** @var bool $draw */
@@ -28,7 +28,7 @@ class BracketDto extends ApiObject
 	/** @var int $number_of_games */
 	public $number_of_games;
 
-	/** @var OpponentDto[] $opponents */
+	/** @var TeamDto[] $opponents */
 	public $opponents;
 
 	/** @var MatchDto[] $previous_matches */
@@ -50,6 +50,6 @@ class BracketDto extends ApiObject
 	/** @var int $winner_id */
 	public $winner_id;
 
-	/** @var \DateTime $modified_at */
+	/** @var string $modified_at */
 	public $modified_at;
 }

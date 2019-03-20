@@ -7,7 +7,7 @@ class GameDto extends ApiObject
 	/** @var int $id */
 	public $id;
 
-	/** @var \DateTime $begin_at */
+	/** @var string $begin_at */
 	public $begin_at;
 
 	/** @var bool $finished */
@@ -31,7 +31,7 @@ class GameDto extends ApiObject
 	/** @var TeamDto[] $teams */
 	public $teams;
 
-	/** @var OpponentDto $winner */
+	/** @var TeamDto $winner */
 	public $winner;
 
 	/** @var string $winner_type */

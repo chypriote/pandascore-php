@@ -10,5 +10,6 @@ $api = new PandaScoreAPI([
 	'USE_LEAGUE_OF_LEGENDS' => true,
 ]);
 
-$data = json_encode($api->lol->leagues->listLeagues(), JSON_PRETTY_PRINT);
+$data = json_encode($api->matches->getMatch(54074), JSON_PRETTY_PRINT);
 fprintf(STDOUT, $data);
+
