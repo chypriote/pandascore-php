@@ -4,7 +4,7 @@ namespace PandaScoreAPI\Objects;
 
 /**
  * Used in:
- *   league
+ *   league.
  *
  *     @see https://developers.pandascore.co/doc/#operation/get_leagues
  *     @see https://developers.pandascore.co/doc/#operation/get_leagues_leagueIdOrSlug
@@ -14,7 +14,7 @@ class LeagueDto extends ApiObject
     /** @var int $id */
     public $id;
 
-	/** @var string $name */
+    /** @var string $name */
     public $name;
 
     /** @var string $url */

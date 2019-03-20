@@ -4,6 +4,6 @@ namespace PandaScoreAPI\Objects;
 
 abstract class OpponentDto extends ApiObject
 {
-	/** @var int $id */
-	public $id;
+    /** @var int $id */
+    public $id;
 }

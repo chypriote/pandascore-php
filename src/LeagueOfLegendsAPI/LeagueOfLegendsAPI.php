@@ -50,6 +50,7 @@ class LeagueOfLegendsAPI extends PandaScoreAPI
             foreach ($result as $leagueListDtoData) {
                 $r[] = new Objects\LeagueDto($leagueListDtoData, $this);
             }
+
             return $r;
         });
     }

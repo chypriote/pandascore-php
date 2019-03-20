@@ -4,36 +4,36 @@ namespace PandaScoreAPI\Objects;
 
 class GameDto extends ApiObject
 {
-	/** @var int $id */
-	public $id;
+    /** @var int $id */
+    public $id;
 
-	/** @var \DateTime $beginAt */
-	public $beginAt;
+    /** @var \DateTime $beginAt */
+    public $beginAt;
 
-	/** @var bool $finished */
-	public $finished;
+    /** @var bool $finished */
+    public $finished;
 
-	/** @var int $length */
-	public $length;
+    /** @var int $length */
+    public $length;
 
-	/** @var array $match */ //FullGameMatchDto
-	public $match;
+    /** @var array $match */ //FullGameMatchDto
+    public $match;
 
-	/** @var int $matchId */
-	public $matchId;
+    /** @var int $matchId */
+    public $matchId;
 
-	/** @var PlayerDto[] $players */
-	public $players;
+    /** @var PlayerDto[] $players */
+    public $players;
 
-	/** @var int $position */
-	public $position;
+    /** @var int $position */
+    public $position;
 
-	/** @var TeamDto[] $teams */
-	public $teams;
+    /** @var TeamDto[] $teams */
+    public $teams;
 
-	/** @var OpponentDto $winner */
-	public $winner;
+    /** @var OpponentDto $winner */
+    public $winner;
 
-	/** @var string $winnerType */
-	public $winnerType;
+    /** @var string $winnerType */
+    public $winnerType;
 }

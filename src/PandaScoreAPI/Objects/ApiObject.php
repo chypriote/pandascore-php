@@ -2,7 +2,6 @@
 
 namespace PandaScoreAPI\Objects;
 
-use function Couchbase\defaultDecoder;
 use PandaScoreAPI\LeagueAPI\Exceptions\GeneralException;
 use PandaScoreAPI\PandaScoreAPI;
 
@@ -11,13 +10,14 @@ use PandaScoreAPI\PandaScoreAPI;
  */
 abstract class ApiObject implements IApiObject
 {
-	/**
-	 *   ApiObject constructor.
-	 *
-	 * @param array $data
-	 * @param PandaScoreAPI $api ,
-	 * @throws \ReflectionException
-	 */
+    /**
+     *   ApiObject constructor.
+     *
+     * @param array         $data
+     * @param PandaScoreAPI $api  ,
+     *
+     * @throws \ReflectionException
+     */
     public function __construct(array $data, PandaScoreAPI $api = null)
     {
         // Tries to assigns data to class properties

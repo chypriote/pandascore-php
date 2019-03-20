@@ -4,7 +4,7 @@ namespace PandaScoreAPI\Objects;
 
 /**
  * Used in:
- *   series
+ *   series.
  *
  *     @see https://developers.pandascore.co/doc/#operation/get_leagues
  *     @see https://developers.pandascore.co/doc/#operation/get_leagues_leagueIdOrSlug

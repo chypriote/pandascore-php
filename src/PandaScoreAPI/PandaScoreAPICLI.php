@@ -98,7 +98,6 @@ use PandaScoreAPI\Exceptions\GeneralException;
 use PandaScoreAPI\Exceptions\InvalidMethodCLIException;
 use PandaScoreAPI\Exceptions\InvalidParameterCLIException;
 use PandaScoreAPI\Exceptions\MissingParameterCLIException;
-use PandaScoreAPI\LeagueOfLegendsAPI\LeagueOfLegendsAPI;
 use PandaScoreAPI\PandaScoreAPI;
 
 //  check for help arg

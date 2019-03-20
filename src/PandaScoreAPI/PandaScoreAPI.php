@@ -22,19 +22,19 @@ class PandaScoreAPI extends APIClient
     ];
 
     /** @var Leagues $leagues */
-	public $leagues;
+    public $leagues;
 
-	/** @var Series $series */
-	public $series;
+    /** @var Series $series */
+    public $series;
 
-	/** @var Tournaments $tournaments */
-	public $tournaments;
+    /** @var Tournaments $tournaments */
+    public $tournaments;
 
-	public function __construct(array $settings)
-	{
-		parent::__construct($settings);
-		$this->leagues = new Leagues($this);
-		$this->series = new Series($this);
-		$this->tournaments = new Tournaments($this);
-	}
+    public function __construct(array $settings)
+    {
+        parent::__construct($settings);
+        $this->leagues = new Leagues($this);
+        $this->series = new Series($this);
+        $this->tournaments = new Tournaments($this);
+    }
 }

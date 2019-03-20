@@ -6,10 +6,10 @@ use PandaScoreAPI\PandaScoreAPI;
 
 class APIEndpoint
 {
-	protected $client;
+    protected $client;
 
-	public function __construct(PandaScoreAPI $client)
-	{
-		$this->client = $client;
-	}
+    public function __construct(PandaScoreAPI $client)
+    {
+        $this->client = $client;
+    }
 }
