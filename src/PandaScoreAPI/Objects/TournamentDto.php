@@ -7,20 +7,20 @@ class TournamentDto extends ApiObject
 	/** @var int $id */
 	public $id;
 
-	/** @var \DateTime $beginAt */
-	public $beginAt;
+	/** @var \DateTime $begin_at */
+	public $begin_at;
 
-	/** @var \DateTime $endAt */
-	public $endAt;
+	/** @var \DateTime $end_at */
+	public $end_at;
 
-	/** @var array $expectedRoster */
-	public $expectedRoster;
+	/** @var array $expected_roster */
+	public $expected_roster;
 
 	/** @var LeagueDto $league */
 	public $league;
 
-	/** @var int $leagueId */
-	public $leagueId;
+	/** @var int $league_id */
+	public $league_id;
 
 	/** @var MatchDto[] $matches */
 	public $matches;
@@ -31,8 +31,8 @@ class TournamentDto extends ApiObject
 	/** @var SeriesDto $serie */
 	public $serie;
 
-	/** @var int $serieId */
-	public $serieId;
+	/** @var int $serie_id */
+	public $serie_id;
 
 	/** @var string $slug */
 	public $slug;
@@ -40,15 +40,15 @@ class TournamentDto extends ApiObject
 	/** @var TeamDto[] $teams */
 	public $teams;
 
-	/** @var VideogameDto $videoGame */
-	public $videoGame;
+	/** @var VideogameDto $videogame */
+	public $videogame;
 
-	/** @var string $winnerType */
-	public $winnerType;
+	/** @var string $winner_type */
+	public $winner_type;
 
-	/** @var int $winnerId */
-	public $winnerId;
+	/** @var string $winner_id */
+	public $winner_id;
 
-	/** @var \DateTime $modifiedAt */
-	public $modifiedAt;
+	/** @var \DateTime $modified_at */
+	public $modified_at;
 }

@@ -7,8 +7,8 @@ class BracketDto extends ApiObject
 	/** @var int $id */
 	public $id;
 
-	/** @var \DateTime $beginAt */
-	public $beginAt;
+	/** @var \DateTime $begin_at */
+	public $begin_at;
 
 	/** @var bool $draw */
 	public $draw;
@@ -16,8 +16,8 @@ class BracketDto extends ApiObject
 	/** @var GameDto[] $games */
 	public $games;
 
-	/** @var string $matchType */
-	public $matchType;
+	/** @var string $match_type */
+	public $match_type;
 
 	/** @var array $live */
 	public $live;
@@ -25,14 +25,14 @@ class BracketDto extends ApiObject
 	/** @var string $name */
 	public $name;
 
-	/** @var int $numberOfGames */
-	public $numberOfGames;
+	/** @var int $number_of_games */
+	public $number_of_games;
 
 	/** @var OpponentDto[] $opponents */
 	public $opponents;
 
-	/** @var MatchDto[] $previousMatches */
-	public $previousMatches;
+	/** @var MatchDto[] $previous_matches */
+	public $previous_matches;
 
 	/** @var string $slug */
 	public $slug;
@@ -44,12 +44,12 @@ class BracketDto extends ApiObject
 	/** @var string $status */
 	public $status;
 
-	/** @var int $tournamentId */
-	public $tournamentId;
+	/** @var int $tournament_id */
+	public $tournament_id;
 
-	/** @var int $winnerId */
-	public $winnerId;
+	/** @var int $winner_id */
+	public $winner_id;
 
-	/** @var \DateTime $modifiedAt */
-	public $modifiedAt;
+	/** @var \DateTime $modified_at */
+	public $modified_at;
 }

@@ -4,8 +4,8 @@ namespace PandaScoreAPI\Objects;
 
 class StandingDto extends ApiObject
 {
-	/** @var MatchDto $lastMatch */
-	public $lastMatch;
+	/** @var MatchDto $last_match */
+	public $last_match;
 
 	/** @var int $rank */
 	public $rank;

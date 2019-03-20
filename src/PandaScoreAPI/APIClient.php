@@ -60,7 +60,6 @@ abstract class APIClient
 		USE_DOTA_2 = 'USE_DOTA_2',
 		USE_OVERWATCH = 'USE_OVERWATCH';
 
-
 	const
 		//  List of required setting keys
 		SETTINGS_REQUIRED = [

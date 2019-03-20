@@ -11,30 +11,30 @@ namespace PandaScoreAPI\Objects;
  */
 class LeagueDto extends ApiObject
 {
-    /** @var int $id */
-    public $id;
+	/** @var int $id */
+	public $id;
 
-    /** @var string $name */
-    public $name;
+	/** @var string $name */
+	public $name;
 
-    /** @var string $url */
-    public $url;
+	/** @var string $url */
+	public $url;
 
-    /** @var string $slug */
-    public $slug;
+	/** @var string $slug */
+	public $slug;
 
-    /** @var bool $liveSupported */
-    public $liveSupported;
+	/** @var bool $live_supported */
+	public $live_supported;
 
-    /** @var string $imageUrl */
-    public $imageUrl;
+	/** @var string $image_url */
+	public $image_url;
 
-    /** @var SeriesDto[] $series */
-    public $series;
+	/** @var SeriesDto[] $series */
+	public $series;
 
-    /** @var VideogameDto $videogame */
-    public $videogame;
+	/** @var VideogameDto $videogame */
+	public $videogame;
 
-    /** @var \DateTime $modifiedAt */
-    public $modifiedAt;
+	/** @var \DateTime $modified_at */
+	public $modified_at;
 }

@@ -152,7 +152,7 @@ class Series extends APIEndpoint
 			->makeCall();
 
 		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
-			return new Objects\LeagueDto($result, $this->client);
+			return new Objects\SeriesDto($result, $this->client);
 		});
 	}
 

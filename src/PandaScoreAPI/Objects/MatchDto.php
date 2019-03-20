@@ -7,8 +7,8 @@ class MatchDto extends ApiObject
 	/** @var int $id */
 	public $id;
 
-	/** @var \DateTime $beginAt */
-	public $beginAt;
+	/** @var \DateTime $begin_at */
+	public $begin_at;
 
 	/** @var bool $draw */
 	public $draw;
@@ -19,23 +19,20 @@ class MatchDto extends ApiObject
 	/** @var LeagueDto $league */
 	public $league;
 
-	/** @var int $leagueId */
-	public $leagueId;
+	/** @var int $league_id */
+	public $league_id;
 
 	/** @var bool $live */
 	public $live;
 
-	/** @var string $matchType */
-	public $matchType;
-
-	/** @var \DateTime $modifiedAt */
-	public $modifiedAt;
+	/** @var string $match_type */
+	public $match_type;
 
 	/** @var string $name */
 	public $name;
 
-	/** @var int $numberOfGames */
-	public $numberOfGames;
+	/** @var int $number_of_games */
+	public $number_of_games;
 
 	/** @var OpponentDto[] $opponnents */
 	public $opponnents;
@@ -46,8 +43,8 @@ class MatchDto extends ApiObject
 	/** @var SeriesDto $serie */
 	public $serie;
 
-	/** @var int $serieId */
-	public $serieId;
+	/** @var int $serie_id */
+	public $serie_id;
 
 	/** @var string $slug */
 	public $slug;
@@ -59,15 +56,18 @@ class MatchDto extends ApiObject
 	/** @var string $status */
 	public $status;
 
-	/** @var VideogameDto $videoGame */
-	public $videoGame;
+	/** @var VideogameDto $videogame */
+	public $videogame;
 
-	/** @var VideogameVersionDto $videoGameVersion */
-	public $videoGameVersion;
+	/** @var VideogameVersionDto $videogame_version */
+	public $videogame_version;
 
 	/** @var OpponentDto $winner */
 	public $winner;
 
-	/** @var int $winnerId */
-	public $winnerId;
+	/** @var int $winner_id */
+	public $winner_id;
+
+	/** @var \DateTime $modified_at */
+	public $modified_at;
 }
