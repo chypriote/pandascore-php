@@ -4,6 +4,9 @@ namespace PandaScoreAPI\Objects;
 
 class TeamDto extends OpponentDto
 {
+	/** @var int $id */
+	public $id;
+
 	/** @var string $name */
 	public $name;
 

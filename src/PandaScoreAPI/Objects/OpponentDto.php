@@ -2,8 +2,11 @@
 
 namespace PandaScoreAPI\Objects;
 
-abstract class OpponentDto extends ApiObject
+class OpponentDto extends ApiObject
 {
-	/** @var int $id */
-	public $id;
+	/** @var string $type */
+	public $type;
+
+	/** @var TeamDto $opponent */
+	public $opponent;
 }

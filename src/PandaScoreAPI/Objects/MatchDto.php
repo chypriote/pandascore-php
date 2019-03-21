@@ -34,8 +34,8 @@ class MatchDto extends ApiObject
 	/** @var int $number_of_games */
 	public $number_of_games;
 
-	/** @var TeamDto[] $opponnents */
-	public $opponnents;
+	/** @var OpponentDto[] $opponents */
+	public $opponents;
 
 	/** @var MatchResultDto[] $results */
 	public $results;
