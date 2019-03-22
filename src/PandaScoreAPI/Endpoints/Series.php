@@ -51,7 +51,7 @@ class Series extends APIEndpoint
 		return $this->client->resolveOrEnqueuePromise($this->client->makeCall(), function (array $result) {
 			$r = [];
 			foreach ($result as $leagueListDtoData) {
-				$r[] = new Objects\LeagueDto($leagueListDtoData, $this->client);
+				$r[] = new Objects\SeriesDto($leagueListDtoData, $this->client);
 			}
 
 			return $r;
