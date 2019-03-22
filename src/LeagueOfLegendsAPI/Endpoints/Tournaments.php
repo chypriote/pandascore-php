@@ -12,11 +12,11 @@ use PandaScoreAPI\Objects;
 class Tournaments extends APIEndpoint
 {
 	/**
-	 * ==================================================================d=d=
+	 * ==================================================================n=t=
 	 *     Tournaments Endpoint Methods.
 	 *
 	 *     @see https://developers.pandascore.co/doc/#tag/LoL-Tournaments
-	 * ==================================================================d=d=
+	 * ==================================================================n=t=
 	 **/
 	const RESOURCE_LOL_TOURNAMENT = 'lol-tournament';
 

@@ -11,11 +11,11 @@ use PandaScoreAPI\Objects;
 class Tournaments extends APIEndpoint
 {
 	/**
-	 * ==================================================================d=d=
+	 * ==================================================================n=t=
 	 *     Tournaments Endpoint Methods.
 	 *
 	 *     @see https://developers.pandascore.co/doc/#tag/Tournaments
-	 * ==================================================================d=d=
+	 * ==================================================================n=t=
 	 **/
 	const RESOURCE_TOURNAMENT = 'tournament';
 
@@ -189,7 +189,11 @@ class Tournaments extends APIEndpoint
 	/**
 	 *  Get the matches of the given tournament.
 	 *
-	 * @param int $tournament_id
+	 * @param int      $tournament_id
+	 * @param array    $filters
+	 * @param int|null $page
+	 * @param int|null $per_page
+	 * @param array    $sorts
 	 *
 	 * @return Objects\MatchDto[]
 	 *
@@ -200,13 +204,19 @@ class Tournaments extends APIEndpoint
 	 *
 	 * @see https://developers.pandascore.co/doc/#operation/get_tournaments_tournamentIdOrSlug_matches
 	 */
-	public function getTournamentMatches(int $tournament_id)
+	public function getTournamentMatches(int $tournament_id, array $filters = [], int $page = null, int $per_page = null, array $sorts = [])
 	{
-		$resultPromise = $this->client->setEndpoint("/tournaments/{$tournament_id}/matches")
+		$this->client->setEndpoint("/tournaments/{$tournament_id}/matches")
 			->setResource(self::RESOURCE_TOURNAMENT, '/tournaments/%s/matches')
-			->makeCall();
+			->addQuery('page', $page)
+			->addQuery('sort', join(',', $sorts))
+			->addQuery('per_page', $per_page);
 
-		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
+		foreach ($filters as $key => $filter) {
+			$this->client->addQuery('filter['.$key.']', $filter);
+		}
+
+		return $this->client->resolveOrEnqueuePromise($this->client->makeCall(), function (array $result) {
 			$r = [];
 			foreach ($result as $leagueListDtoData) {
 				$r[] = new Objects\MatchDto($leagueListDtoData, $this->client);

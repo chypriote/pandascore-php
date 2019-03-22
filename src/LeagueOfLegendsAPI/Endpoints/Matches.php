@@ -12,11 +12,11 @@ use PandaScoreAPI\Objects;
 class Matches extends APIEndpoint
 {
 	/**
-	 * ==================================================================d=d=
+	 * ==================================================================n=t=
 	 *     Matches Endpoint Methods.
 	 *
 	 *     @see https://developers.pandascore.co/doc/#tag/LoL-Matches
-	 * ==================================================================d=d=
+	 * ==================================================================n=t=
 	 **/
 	const RESOURCE_LOL_MATCH = 'lol-match';
 

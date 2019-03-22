@@ -11,11 +11,11 @@ use PandaScoreAPI\Objects;
 class Matches extends APIEndpoint
 {
 	/**
-	 * ==================================================================d=d=
+	 * ==================================================================n=t=
 	 *     Matches Endpoint Methods.
 	 *
 	 *     @see https://developers.pandascore.co/doc/#tag/Matches
-	 * ==================================================================d=d=
+	 * ==================================================================n=t=
 	 **/
 	const RESOURCE_MATCH = 'match';
 

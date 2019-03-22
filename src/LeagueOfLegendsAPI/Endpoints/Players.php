@@ -12,11 +12,11 @@ use PandaScoreAPI\Objects;
 class Players extends APIEndpoint
 {
 	/**
-	 * ==================================================================d=d=
+	 * ==================================================================n=t=
 	 *     Players Endpoint Methods.
 	 *
 	 *     @see https://developers.pandascore.co/doc/#tag/LoL-Players
-	 * ==================================================================d=d=
+	 * ==================================================================n=t=
 	 **/
 	const RESOURCE_LOL_PLAYER = 'lol-player';
 

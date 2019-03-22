@@ -12,11 +12,11 @@ use PandaScoreAPI\Objects;
 class Teams extends APIEndpoint
 {
 	/**
-	 * ==================================================================d=d=
+	 * ==================================================================n=t=
 	 *     Teams Endpoint Methods.
 	 *
 	 *     @see https://developers.pandascore.co/doc/#tag/LoL-Teams
-	 * ==================================================================d=d=
+	 * ==================================================================n=t=
 	 **/
 	const RESOURCE_LOL_TEAM = 'lol-team';
 

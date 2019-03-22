@@ -458,9 +458,26 @@ abstract class APIClient
 	}
 
 	/**
-	 * ==================================================================d=d=
+	 *   Adds GET parameter to called URL.
+	 *
+	 * @param string $name
+	 * @param null   $value
+	 *
+	 * @return APIClient
+	 */
+	public function addQuery(string $name, $value): self
+	{
+		if (!empty($value)) {
+			$this->query_data[$name] = $value;
+		}
+
+		return $this;
+	}
+
+	/**
+	 * ==================================================================n=t=
 	 *     API Call Methods
-	 * ==================================================================d=d=.
+	 * ==================================================================n=t=.
 	 **/
 
 	/**
@@ -637,7 +654,7 @@ abstract class APIClient
 		$url_keyPart = '';
 		if (self::KEY_AS_QUERY_PARAM === $this->getSetting(self::SET_KEY_INCLUDE_TYPE)) {
 			//  API key is to be included as query parameter
-			$url_keyPart = '?api_key='.$this->getSetting($this->used_key);
+			$url_keyPart = '?token='.$this->getSetting($this->used_key);
 			if (!empty($url_queryPart)) {
 				$url_keyPart .= '&';
 			}
@@ -701,9 +718,9 @@ abstract class APIClient
 	}
 
 	/**
-	 * ==================================================================d=d=
+	 * ==================================================================n=t=
 	 *     Setup Methods
-	 * ==================================================================d=d=.
+	 * ==================================================================n=t=.
 	 **/
 
 	/**

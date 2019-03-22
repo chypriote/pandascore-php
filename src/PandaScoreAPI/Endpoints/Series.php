@@ -11,36 +11,47 @@ use PandaScoreAPI\Objects;
 class Series extends APIEndpoint
 {
 	/**
-	 * ==================================================================d=d=
+	 * ==================================================================n=t=
 	 *     Series Endpoint Methods.
 	 *
 	 *     @see https://developers.pandascore.co/doc/#tag/Series
-	 * ==================================================================d=d=
+	 * ==================================================================n=t=
 	 **/
 	const RESOURCE_SERIE = 'serie';
 
 	/**
 	 *   List series.
 	 *
+	 * @param array    $filters
+	 * @param int|null $page
+	 * @param int|null $per_page
+	 * @param array    $sorts
+	 *
 	 * @return Objects\SeriesDto
 	 *
+	 * @throws GeneralException
 	 * @throws RequestException
 	 * @throws ServerException
 	 * @throws ServerLimitException
-	 * @throws GeneralException
 	 *
 	 * @see https://developers.pandascore.co/doc/#operation/get_series
 	 */
-	public function listSeries()
+	public function listSeries(array $filters = [], int $page = null, int $per_page = null, array $sorts = [])
 	{
-		$resultPromise = $this->client->setEndpoint('/series')
+		$this->client->setEndpoint('/series')
 			->setResource(self::RESOURCE_SERIE, '/series/%s')
-			->makeCall();
+			->addQuery('page', $page)
+			->addQuery('sort', join(',', $sorts))
+			->addQuery('per_page', $per_page);
 
-		return $this->client->resolveOrEnqueuePromise($resultPromise, function (array $result) {
+		foreach ($filters as $key => $filter) {
+			$this->client->addQuery('filter['.$key.']', $filter);
+		}
+
+		return $this->client->resolveOrEnqueuePromise($this->client->makeCall(), function (array $result) {
 			$r = [];
 			foreach ($result as $leagueListDtoData) {
-				$r[] = new Objects\SeriesDto($leagueListDtoData, $this->client);
+				$r[] = new Objects\LeagueDto($leagueListDtoData, $this->client);
 			}
 
 			return $r;
